@@ -1,5 +1,22 @@
 const API = "http://localhost:8085/api/accounts";
 
+
+async function createAccount() {
+
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+
+    const response = await fetch(`/api/accounts/create?fullName=${fullName}&email=${email}`, {
+        method: "POST"
+    });
+
+    const data = await response.json();
+
+    document.getElementById("createResult").innerText =
+        "Account created with ID: " + data.id +
+        " | Balance: " + data.balance;
+}
+
 async function getAccount() {
 
     const id = document.getElementById("accountId").value;
@@ -47,4 +64,28 @@ async function transfer() {
     });
 
     alert("Transfer successful");
+}
+
+async function getTransactions() {
+
+    const id = document.getElementById("transactionAccountId").value;
+
+    const response = await fetch(`/api/accounts/${id}/transactions`);
+
+    const transactions = await response.json();
+
+    const list = document.getElementById("transactions");
+    list.innerHTML = "";
+
+    transactions.forEach(tx => {
+
+        const item = document.createElement("li");
+
+        item.innerText =
+            tx.type +
+            " | Amount: " + tx.amount +
+            " | Date: " + tx.timestamp;
+
+        list.appendChild(item);
+    });
 }
