@@ -1,12 +1,14 @@
 body{
     font-family: Arial;
     text-align:center;
-    margin-top:80px;
+    margin-top:60px;
+    background:#f4f6f9;
 }
 
 input{
     padding:10px;
     margin:10px;
+    width:250px;
 }
 
 button{
@@ -14,4 +16,9 @@ button{
     background:#1e88e5;
     color:white;
     border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1565c0;
 }

@@ -35,7 +35,7 @@ public class AccountService {
         User user = new User();
         user.setFullName(fullName);
         user.setEmail(email);
-        user.setPassword("123"); // temporary password for testing
+        user.setPin("1234"); // temporary test pin
 
         userRepository.save(user);
 
