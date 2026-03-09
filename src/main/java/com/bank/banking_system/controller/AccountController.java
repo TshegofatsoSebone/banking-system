@@ -1,5 +1,6 @@
 package com.bank.banking_system.controller;
 
+import com.bank.banking_system.dto.AccountRequest;
 import com.bank.banking_system.model.Account;
 import com.bank.banking_system.model.Transaction;
 import com.bank.banking_system.service.AccountService;
@@ -18,12 +19,13 @@ public class AccountController {
     }
 
     @PostMapping("/create")
-    public Account createAccount(@RequestParam String fullName,
-                                 @RequestParam String email){
+    public Account createAccount(@RequestBody AccountRequest request){
 
-        return service.createAccount(fullName, email);
+        return service.createAccount(
+                request.getFullName(),
+                request.getEmail()
+        );
     }
-
     // ✅ Create Deposit
     @PostMapping("/{id}/deposit")
     public Account deposit(@PathVariable Long id,

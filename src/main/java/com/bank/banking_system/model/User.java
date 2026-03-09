@@ -1,6 +1,7 @@
 package com.bank.banking_system.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
 @Getter
@@ -17,8 +18,14 @@ public class User {
 
     private String fullName;
 
+    @Email
     @Column(unique = true)
     private String email;
 
-    private String password;
+    private String phoneNumber;
+
+    @Column(unique = true)
+    private String idNumber;
+
+    private String pin;
 }

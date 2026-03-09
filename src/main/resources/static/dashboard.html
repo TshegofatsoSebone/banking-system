@@ -7,11 +7,52 @@
 
 <body>
 
-<h1>Welcome to Your Bank Dashboard</h1>
+<h1>Bank Dashboard</h1>
 
-<button onclick="loadAccounts()">View Accounts</button>
+<h3>Check Balance</h3>
 
-<div id="accounts"></div>
+<input type="number" id="accountId" placeholder="Account ID">
+<button onclick="getAccount()">Check Balance</button>
+
+<p id="balance"></p>
+
+<hr>
+
+<h3>Deposit</h3>
+
+<input type="number" id="depositAccountId" placeholder="Account ID">
+<input type="number" id="depositAmount" placeholder="Amount">
+
+<button onclick="deposit()">Deposit</button>
+
+<hr>
+
+<h3>Withdraw</h3>
+
+<input type="number" id="withdrawAccountId" placeholder="Account ID">
+<input type="number" id="withdrawAmount" placeholder="Amount">
+
+<button onclick="withdraw()">Withdraw</button>
+
+<hr>
+
+<h3>Transfer</h3>
+
+<input type="number" id="fromAccount" placeholder="From Account">
+<input type="number" id="toAccount" placeholder="To Account">
+<input type="number" id="transferAmount" placeholder="Amount">
+
+<button onclick="transfer()">Transfer</button>
+
+<hr>
+
+<h3>Transactions</h3>
+
+<input type="number" id="transactionAccountId" placeholder="Account ID">
+
+<button onclick="getTransactions()">View Transactions</button>
+
+<ul id="transactions"></ul>
 
 <script src="/js/app.js"></script>
 
